@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Bash(pnpm --version)",
+      "Bash(npm config *)",
+      "Bash(npm list *)",
+      "Bash(npm install *)",
+      "Bash(npx tsc *)",
+      "Bash(npx vite *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173/)",
+      "Bash(xxd)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173)",
+      "Bash(curl -s http://localhost:5173)",
+      "Bash(curl -s http://localhost:5173/src/main.tsx)",
+      "Bash(curl -s http://localhost:5173/src/App.tsx)",
+      "Bash(lsof -ti:5173)",
+      "Bash(xargs kill -9)",
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://localhost:5173)",
+      "Bash(curl -s -o /dev/null -w \"main.tsx: %{http_code}\\\\n\" http://localhost:5173/src/main.tsx)",
+      "Bash(curl -s -o /dev/null -w \"App.tsx: %{http_code}\\\\n\" http://localhost:5173/src/App.tsx)",
+      "Bash(curl -s -o /dev/null -w \"ReactFlow: %{http_code}\\\\n\" \"http://localhost:5173/node_modules/.vite/deps/@xyflow_react.js?v=3dbc448c\")",
+      "Bash(curl -s -o /dev/null -w \"TopologyCanvas: %{http_code}\\\\n\" http://localhost:5173/src/components/canvas/TopologyCanvas.tsx)",
+      "Bash(curl -s -o /dev/null -w \"DevicePalette: %{http_code}\\\\n\" http://localhost:5173/src/components/palette/DevicePalette.tsx)",
+      "Bash(curl -s -o /dev/null -w \"BaseDeviceNode: %{http_code}\\\\n\" http://localhost:5173/src/components/canvas/nodes/BaseDeviceNode.tsx)",
+      "Bash(curl -s -o /dev/null -w \"Store: %{http_code}\\\\n\" http://localhost:5173/src/store/useTopologyStore.ts)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://192.168.111.100:5173)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" -H \"Upgrade: websocket\" -H \"Connection: Upgrade\" http://192.168.111.100:5173/)"
+    ]
+  }
+}
