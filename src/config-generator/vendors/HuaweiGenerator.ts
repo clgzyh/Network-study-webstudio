@@ -1,6 +1,6 @@
 import { ConfigGenerator, type ConfigSection } from '../ConfigGenerator';
 import type { TopologyNode, TopologyEdge } from '../../types';
-import { parseCidr, prefixToMask } from '../../utils/ip';
+import { parseCidr } from '../../utils/ip';
 
 export class HuaweiGenerator extends ConfigGenerator {
   vendor = 'huawei' as const;
@@ -21,7 +21,7 @@ export class HuaweiGenerator extends ConfigGenerator {
     };
   }
 
-  genInterfaces(node: TopologyNode, edges: TopologyEdge[]): ConfigSection {
+  genInterfaces(node: TopologyNode, _edges: TopologyEdge[]): ConfigSection {
     const lines: string[] = [];
     for (const iface of node.data.interfaces) {
       const hwName = this.adaptIfaceName(iface.name);

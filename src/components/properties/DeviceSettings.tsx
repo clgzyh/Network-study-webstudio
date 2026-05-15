@@ -2,7 +2,6 @@ import type { TopologyNode } from '../../types';
 import { useTopologyStore } from '../../store/useTopologyStore';
 import { DEVICE_DEFAULTS } from '../../constants/devices';
 import { useUIStore } from '../../store/useUIStore';
-import { VENDOR_THEMES } from '../../theme/vendorThemes';
 
 interface Props {
   node: TopologyNode;

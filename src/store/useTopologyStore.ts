@@ -3,7 +3,7 @@ import { produce } from 'immer';
 import type { TopologyNode, TopologyEdge, DeviceCategory, DeviceInterface, ConnectionMedia, NetworkTopology } from '../types';
 import { generateId, generateHostname } from '../utils/id';
 import { DEVICE_DEFAULTS } from '../constants/devices';
-import { VENDOR_THEMES } from '../theme/vendorThemes';
+
 
 interface Snapshot {
   nodes: TopologyNode[];
@@ -56,16 +56,14 @@ export const useTopologyStore = create<TopologyState>((set, get) => {
 
     addNode: (type, x, y, vendor) => {
       pushSnapshot();
-      const { nodes, topology } = get();
+      const { nodes } = get();
       const defaults = DEVICE_DEFAULTS[type];
       const id = generateId();
       const hostname = generateHostname(
         defaults.defaultHostnamePrefix,
         nodes.map((n) => n.data.hostname)
       );
-      const vendorTheme = VENDOR_THEMES[vendor as keyof typeof VENDOR_THEMES] ?? VENDOR_THEMES.huawei;
       const model = defaults.defaultModel[vendor] ?? Object.values(defaults.defaultModel)[0];
-      const theme = vendorTheme.interfacePrefixes;
 
       const interfaces: DeviceInterface[] = defaults.interfaces.map((iface) => ({
         ...iface,
@@ -187,13 +185,13 @@ export const useTopologyStore = create<TopologyState>((set, get) => {
             const tgtNode = state.nodes.find((n) => n.id === edge.target);
             if (srcNode) {
               const iface = srcNode.data.interfaces.find(
-                (i) => i.id === edge.data.sourceInterfaceId
+                (i) => i.id === edge.data?.sourceInterfaceId
               );
               if (iface) iface.connectedEdgeId = undefined;
             }
             if (tgtNode) {
               const iface = tgtNode.data.interfaces.find(
-                (i) => i.id === edge.data.targetInterfaceId
+                (i) => i.id === edge.data?.targetInterfaceId
               );
               if (iface) iface.connectedEdgeId = undefined;
             }

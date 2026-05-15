@@ -1,6 +1,5 @@
 import type { TopologyNode, TopologyEdge, Vendor, VendorTheme, DeviceInterface } from '../types';
 import { VENDOR_THEMES } from '../theme/vendorThemes';
-import { parseCidr, getNetworkAddress } from '../utils/ip';
 
 export interface GeneratorOptions {
   annotations: boolean;
@@ -119,7 +118,7 @@ export abstract class ConfigGenerator {
 
   protected getEdgeForIface(node: TopologyNode, iface: DeviceInterface, edges: TopologyEdge[]): TopologyEdge | undefined {
     return edges.find((e) =>
-      (e.data.sourceInterfaceId === iface.id || e.data.targetInterfaceId === iface.id) &&
+      (e.data?.sourceInterfaceId === iface.id || e.data?.targetInterfaceId === iface.id) &&
       (e.source === node.id || e.target === node.id)
     );
   }

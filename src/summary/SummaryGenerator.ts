@@ -37,8 +37,8 @@ export function generateSummary(nodes: TopologyNode[], edges: TopologyEdge[]): s
   // Connection analysis
   const connectionsByType: Record<string, number> = {};
   for (const edge of edges) {
-    const t = edge.data.mediaType;
-    connectionsByType[t] = (connectionsByType[t] ?? 0) + 1;
+    const t = edge.data?.mediaType;
+    if (t) connectionsByType[t] = (connectionsByType[t] ?? 0) + 1;
   }
 
   if (edges.length > 0) {
@@ -92,8 +92,8 @@ export function generateSummary(nodes: TopologyNode[], edges: TopologyEdge[]): s
     if (configuredIps.length > 0) {
       lines.push(`     ⚊ IP地址:`);
       for (const iface of configuredIps) {
-        const neighbor = connectedEdges.find((e) => e.data.sourceInterfaceId === iface.id || e.data.targetInterfaceId === iface.id);
-        const edgeLabel = neighbor ? ` (${neighbor.data.mediaType} ${neighbor.data.speed})` : '';
+        const neighbor = connectedEdges.find((e) => e.data?.sourceInterfaceId === iface.id || e.data?.targetInterfaceId === iface.id);
+        const edgeLabel = neighbor ? ` (${neighbor.data?.mediaType} ${neighbor.data?.speed})` : '';
         lines.push(`       ${iface.name}: ${iface.ipAddress}${edgeLabel}`);
       }
     }

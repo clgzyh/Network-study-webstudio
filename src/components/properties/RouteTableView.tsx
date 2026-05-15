@@ -1,6 +1,5 @@
 import type { TopologyNode } from '../../types';
-import { useTopologyStore } from '../../store/useTopologyStore';
-import { parseCidr, getNetworkAddress, isValidIp } from '../../utils/ip';
+import { parseCidr, getNetworkAddress } from '../../utils/ip';
 
 interface RouteEntry {
   destination: string;

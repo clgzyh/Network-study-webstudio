@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useState } from 'react';
 import {
   ReactFlow,
   Background,
@@ -101,8 +101,8 @@ export function TopologyCanvas() {
   return (
     <div className="w-full h-full">
       <ReactFlow
-        nodes={nodes}
-        edges={edges}
+        nodes={nodes as any}
+        edges={edges as any}
         onNodesChange={(changes) => {
           const currentNodes = useTopologyStore.getState().nodes;
           // Filter out 'add' changes for nodes already in the store, since
@@ -115,7 +115,7 @@ export function TopologyCanvas() {
             return true;
           });
           if (filtered.length === 0) return;
-          setNodes(applyNodeChanges(filtered, currentNodes) as typeof currentNodes);
+          setNodes(applyNodeChanges(filtered, currentNodes as any) as typeof currentNodes);
         }}
         onEdgesChange={(changes) => {
           const currentEdges = useTopologyStore.getState().edges;
@@ -126,7 +126,7 @@ export function TopologyCanvas() {
             return true;
           });
           if (filtered.length === 0) return;
-          setEdges(applyEdgeChanges(filtered, currentEdges) as typeof currentEdges);
+          setEdges(applyEdgeChanges(filtered, currentEdges as any) as typeof currentEdges);
         }}
         onConnect={onConnect}
         onDragOver={onDragOver}

@@ -18,7 +18,7 @@ export class H3CGenerator extends ConfigGenerator {
     };
   }
 
-  genInterfaces(node: TopologyNode, edges: TopologyEdge[]): ConfigSection {
+  genInterfaces(node: TopologyNode, _edges: TopologyEdge[]): ConfigSection {
     const lines: string[] = [];
     for (const iface of node.data.interfaces) {
       const name = iface.name;

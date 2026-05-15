@@ -1,12 +1,12 @@
 import { memo } from 'react';
 import { Handle, Position, type NodeProps } from '@xyflow/react';
 import { Router, ArrowLeftRight, Shield, RadioTower, Wifi, Monitor, Server, Cloud } from 'lucide-react';
-import type { DeviceNodeData, DeviceCategory } from '../../../types';
+import type { DeviceNodeData } from '../../../types';
 import { useUIStore } from '../../../store/useUIStore';
 import { getVendorTheme } from '../../../theme/useVendorTheme';
 import clsx from 'clsx';
 
-const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
+const ICON_MAP: Record<string, React.ComponentType<any>> = {
   router: Router,
   switch: ArrowLeftRight,
   firewall: Shield,
@@ -33,6 +33,8 @@ export const BaseDeviceNode = memo(function BaseDeviceNode({ data, selected }: N
 
   // Calculate handles based on interfaces
   const totalIfaces = deviceData.interfaces.length;
+
+  void totalIfaces;
 
   return (
     <div
@@ -61,7 +63,7 @@ export const BaseDeviceNode = memo(function BaseDeviceNode({ data, selected }: N
 
       {/* Interface list */}
       <div className="px-1.5 py-1">
-        {deviceData.interfaces.slice(0, 4).map((iface, idx) => {
+        {deviceData.interfaces.slice(0, 4).map((iface, _idx) => {
           const isConnected = !!iface.connectedEdgeId;
           return (
             <div

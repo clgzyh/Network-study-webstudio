@@ -1,4 +1,3 @@
-import type { Vendor } from './vendor';
 import type { DeviceCategory } from './topology';
 
 export type RightPanelTab = 'interfaces' | 'protocols' | 'routing' | 'settings';

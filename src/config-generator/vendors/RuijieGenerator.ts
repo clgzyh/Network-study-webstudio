@@ -20,7 +20,7 @@ export class RuijieGenerator extends ConfigGenerator {
     };
   }
 
-  genInterfaces(node: TopologyNode, edges: TopologyEdge[]): ConfigSection {
+  genInterfaces(node: TopologyNode, _edges: TopologyEdge[]): ConfigSection {
     const hn = node.data.hostname;
     const lines: string[] = [];
     for (const iface of node.data.interfaces) {

@@ -22,6 +22,7 @@ export interface DeviceInterface {
 }
 
 export interface DeviceNodeData {
+  [key: string]: unknown;
   deviceType: DeviceCategory;
   hostname: string;
   label: string;
@@ -36,6 +37,7 @@ export interface DeviceNodeData {
 export type TopologyNode = Node<DeviceNodeData, 'device'>;
 
 export interface ConnectionData {
+  [key: string]: unknown;
   sourceDeviceId: string;
   targetDeviceId: string;
   sourceInterfaceId: string;

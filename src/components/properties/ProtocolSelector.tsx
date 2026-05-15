@@ -258,6 +258,7 @@ function VLANConfigForm({ node }: { node: TopologyNode }) {
 }
 
 function ACLConfigForm({ node }: { node: TopologyNode }) {
+  void node;
   return <div className="text-[10px] text-text-muted">ACL 配置（基础版 - 可在高级版中扩展）</div>;
 }
 

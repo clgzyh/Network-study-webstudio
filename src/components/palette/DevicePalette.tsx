@@ -5,7 +5,7 @@ import { DEVICE_LABELS } from '../../constants/devices';
 import { useVendorTheme } from '../../theme/useVendorTheme';
 import clsx from 'clsx';
 
-const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
+const ICON_MAP: Record<string, React.ComponentType<any>> = {
   router: Router,
   switch: ArrowLeftRight,
   firewall: Shield,
